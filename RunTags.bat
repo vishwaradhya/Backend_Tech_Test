@@ -1,0 +1,1 @@
+mvn clean verify -Dcucumber.options="--tags %1"
