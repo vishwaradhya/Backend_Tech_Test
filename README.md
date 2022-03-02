@@ -16,3 +16,6 @@ Test execution is carried with Windows 10 machine
 2. mvn clean install
 
 API execution starts and report will be stored under target\cucumberHtmlReport\index.html
+
+**Following is the location of tests automated **
+\src\test\resources\features
