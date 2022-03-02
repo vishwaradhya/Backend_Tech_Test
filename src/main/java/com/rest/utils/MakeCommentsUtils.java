@@ -12,8 +12,6 @@ import com.rest.commonutils.PropertiesFile;
 import com.rest.constants.ConfigurationPath;
 import com.rest.constants.EndPoints;
 import com.rest.pojos.makecomments.MakeCommentRequest;
-import com.rest.pojos.makeposts.MakePostRequest;
-
 import cucumber.api.DataTable;
 
 public class MakeCommentsUtils extends RestImpl {

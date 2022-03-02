@@ -1,4 +1,4 @@
-@jp
+@BackendTests
 Feature:  Backend Testing for Make Comments feature
   
   Background:
@@ -11,7 +11,7 @@ Feature:  Backend Testing for Make Comments feature
  		Given user makes comment posts with following details to server
  		|postId	|id		|name									|email	|body								|
  		|		10		|101	|		make comment name	|a@a.com|		make comment body	|
- 		And user verifies the status code for make post as 201
+ 		And user verifies the status code for make post as 200
  		Then user verifes the following details from the comment posts for sucessfull post in the server
  	 	|postId	|id		|name									|email	|body								|
  		|		10		|101	|		make comment name	|a@a.com|	make comment body	|

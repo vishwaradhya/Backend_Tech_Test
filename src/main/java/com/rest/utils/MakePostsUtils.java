@@ -28,8 +28,9 @@ public class MakePostsUtils extends RestImpl {
 			makePost.setId(Integer.parseInt(row.get("id")));
 			makePost.setUserId(Integer.parseInt(row.get("userId")));
 			makePost.setTitle(row.get("title"));
-			makePost.setBody(row.get("body"));			
-			response = postRequest(PropertiesFile.getPropertyValue(ConfigurationPath.CONFIG_PATH, "BASE_URL"), EndPoints.POSTS, makePost);
+			makePost.setBody(row.get("body"));
+			response = postRequest(PropertiesFile.getPropertyValue(ConfigurationPath.CONFIG_PATH, "BASE_URL"),
+					EndPoints.POSTS, makePost);
 
 		}
 		logger.info("Create WorkFlow Status Code is : " + response.getStatusCode());
@@ -40,8 +41,26 @@ public class MakePostsUtils extends RestImpl {
 
 	public int healthCheck() {
 
-		response = getRequest(PropertiesFile.getPropertyValue(ConfigurationPath.CONFIG_PATH, "BASE_URL"), EndPoints.EMPTY);
+		response = getRequest(PropertiesFile.getPropertyValue(ConfigurationPath.CONFIG_PATH, "BASE_URL"),
+				EndPoints.EMPTY);
 		return response.getStatusCode();
+	}
+
+	public Response invalidMethod(DataTable dataTable) {
+		for (final Map<String, String> row : dataTable.asMaps(String.class, String.class)) {
+
+			MakePostRequest makePost = new MakePostRequest();
+			makePost.setId(Integer.parseInt(row.get("id")));
+			makePost.setUserId(Integer.parseInt(row.get("userId")));
+			makePost.setTitle(row.get("title"));
+			makePost.setBody(row.get("body"));
+			response = putRequest(PropertiesFile.getPropertyValue(ConfigurationPath.CONFIG_PATH, "BASE_URL"),
+					EndPoints.POSTS, makePost);
+
+		}
+		logger.info("Create WorkFlow Status Code is : " + response.getStatusCode());
+		logger.info("Create WorkFlow Response is :  " + response.asString());
+		return response;
 	}
 
 }

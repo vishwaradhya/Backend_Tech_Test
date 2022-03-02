@@ -32,6 +32,22 @@ public class RestImpl {
 	}
 
 	/**
+	 * This method is used to send PUT HTTP request
+	 * 
+	 * @param url         - Base URI
+	 * @param path        - Get Request Path
+	 * @param contentType - Content Type for the request
+	 * @return - Returns the httpResponse for the PUT request
+	 */
+	public Response putRequest(String url, String path, Object makePost) {
+
+		RestAssured.baseURI = url + path;
+		response = given().contentType(ContentType.JSON).body(makePost).when().put().then().extract().response();
+
+		return this.response;
+	}
+	
+	/**
 	 * This method is used to Send HTTP GET request
 	 * 
 	 * @param url  - Base URI

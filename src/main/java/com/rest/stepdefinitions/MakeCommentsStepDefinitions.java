@@ -48,7 +48,7 @@ public class MakeCommentsStepDefinitions {
 		}
 	}
 
-	@Given("^user verifies the status code for make post as (\\d+)$")
+	@Given("^user verifies the status code for make comment as (\\d+)$")
 	public void verifyStatusCode(int code) {
 		assertTrue("Status code mismatch Expected " + code + " Actual is " + statusCode, statusCode == code);
 

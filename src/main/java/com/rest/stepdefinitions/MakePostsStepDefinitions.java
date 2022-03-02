@@ -36,12 +36,6 @@ public class MakePostsStepDefinitions {
 		assertTrue("Health check failed ", statusCode == 200);
 	}
 
-	@Given("^user verifies the status code as (\\d+)$")
-	public void verifyStatusCode(int code) {
-
-		assertTrue("Status code mismatch Expected " + code + " Actual is " + statusCode, statusCode == code);
-	}
-
 	@Then("^user verifes the following details from the response for sucessfull post in the server$")
 	public void verifyDetails(DataTable dataTable) {
 
@@ -57,4 +51,18 @@ public class MakePostsStepDefinitions {
 		}
 
 	}
+
+	@Given("^user verifies the status code for make post as (\\d+)$")
+	public void verifyStatusCode(int code) {
+		assertTrue("Status code mismatch Expected " + code + " Actual is " + statusCode, statusCode == code);
+
+	}
+
+	@Given("^user calls for PUT method instead of POST for posting comments  with following data$")
+	public void invalidMethod(DataTable dataTable) throws Throwable {
+
+		response = makePostsObj.invalidMethod(dataTable);
+		statusCode = response.statusCode();
+	}
+
 }

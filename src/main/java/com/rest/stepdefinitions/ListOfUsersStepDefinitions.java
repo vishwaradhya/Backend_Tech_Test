@@ -29,7 +29,7 @@ public class ListOfUsersStepDefinitions {
 		response = makeListUserObj.listUser(userID);
 		logger.info("response > " + response.statusCode());
 		logger.info("response > " + response.asString());
-
+		statusCode = response.getStatusCode();
 		responseOutput = parseResponse.getListUserResponse(response.asString());
 	}
 
@@ -108,13 +108,13 @@ public class ListOfUsersStepDefinitions {
 		response = makeListUserObj.listUser(userID);
 		logger.info("response > " + response.statusCode());
 		logger.info("response > " + response.asString());
-		
-		statusCode =response.getStatusCode(); 
+
+		statusCode = response.getStatusCode();
 
 	}
-	
+
 	@Then("^user verifies the status code for list user as (\\d+)$")
-	public void verifyStatusCodeListUser(int code){
+	public void verifyStatusCodeListUser(int code) {
 		assertTrue("Status code mismatch Expected " + code + " Actual is " + statusCode, statusCode == code);
 
 	}

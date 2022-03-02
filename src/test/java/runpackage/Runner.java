@@ -15,7 +15,7 @@ import cucumber.api.junit.Cucumber;
 @CucumberOptions(plugin = { "html:target/cucumberHtmlReport", "json:target/cucumber.json",
 		"pretty:target/cucumber-pretty.txt", "usage:target/cucumber-usage.json" },
 		features = "classpath:features", glue = { "com.rest.stepdefinitions" }, tags = {
-				"@jp" })
+				"@BackendTests" })
 
 public class Runner {
 	
